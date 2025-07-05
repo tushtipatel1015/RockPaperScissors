@@ -1,0 +1,46 @@
+Project 4: Rock, Paper, Scissors
+
+Group Members: Tushti Patel and Kashish Patel
+Net Ids: Tushti (tdp80) and Kashish (kdp137)
+
+=> What does this program do?: The purpose of this assignment is
+to design and implement a server for an online multiplayer rock, paper, scissors game. This implementation handles concurrent games. 
+
+=> What some major functions do:
+	- bool message(int fd, char *buf, int buff_len, bool send_msg): this method handles both recieving and sending messages from/to players
+
+    - bool valid_move(const char *move): determines if a player sent a valid move
+
+    - const char *find_result( char *player, char *opponent): determines the winner of the round
+
+    - bool name_exists(Player *p1, Player *p2, const char *name): checks if player is already logged into server
+
+    - void add_player(const char *name): adds player to array of logged in players
+
+    - void remove_player(const char *name): removes player from array of logged in players
+
+    - void single_game(Player p1, Player p2): implementation of a singular game of RPS between 2 players
+
+    - void handle_sigchld(int sig): handling zombie (basically unneeded child proccesses are exited)
+
+    - int main(int argc, char **argv): this sets up the game server to accept different players and then lets them play 
+                                        Rock Paper, Scissors using different methods
+
+
+=> The Test Plan:
+    rc:
+        The majority of our test plan was doing using rc, where we had to type the players' name and test different edge cases. We tested different cases, including but not limited to:
+            Test1: Both players Continue the game after playing, and can play another round of game.
+            Test2: One player quits, and the other player continues but it makes both the players quit.
+            Test3: A player is already in the game and in a new terminal another player with the same name tries to enter a game in the same server, which gives them a already logged in and loss message.
+            Test4: A player quits the game and then another player with the same name tries to enter the game, and the game allows the player to enter and play the game.
+            Test5: Works with multiple players at once. So, works fine for concurrent games.
+    
+    gc:
+        We did the same tests for gc as rc, that is:
+            Test1: Both players Continue the game after playing, and can play another round of game.
+            Test2: One player quits, and the other player continues but it makes both the players quit.
+            Test3: A player is already in the game and in a new terminal another player with the same name tries to enter a game in the same server, which gives them a already logged in and loss message.
+            Test4: A player quits the game and then another player with the same name tries to enter the game, and the game allows the player to enter and play the game.
+            Test5: Works with multiple players at once. So, works fine for concurrent games.
+
