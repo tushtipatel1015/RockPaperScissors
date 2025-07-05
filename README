@@ -1,7 +1,7 @@
 Project 4: Rock, Paper, Scissors
 
 Group Members: Tushti Patel and Kashish Patel
-Net Ids: Tushti (tdp80) and Kashish (kdp137)
+
 
 => What does this program do?: The purpose of this assignment is
 to design and implement a server for an online multiplayer rock, paper, scissors game. This implementation handles concurrent games. 
